@@ -9,7 +9,7 @@ const remove = require('../controller/emp')
 router.use(bodyparser.json())
 router.post('/create',create.create)
 router.get('/',view.view)
-router.patch('/:id',update.update)
+router.put('/:id',update.update)
 router.delete('/delete/:id',remove.remove)
 
 module.exports = router

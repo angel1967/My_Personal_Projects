@@ -23,9 +23,10 @@ function view(req,res,next){
 function update(req,res,next){
     Emp.findByIdAndUpdate(req.params.id,req.body, (err,emp)=>{
       if (err) {
-        return res.status(500).send({error: "Problem with Updating the   Employee recored "})
+        create(req,res,next)
+        return res.status(201).send({error: "Problem with Updating, new record created "})
       };
-      res.send({success: "Updation successfull"});
+      res.status(200).send({success: "Updating successfull"});
     })
   }
 function remove(req,res,next){
