@@ -38,10 +38,11 @@ function update(req,res,next){
   }
 function remove(req,res,next){
     Emp.findByIdAndDelete(req.params.id, (err,emp)=>{
-      if(err){
-        return res.status(500).send({error: "Problem with Deleting the Employee record "})
+        
+      if(!emp || err){
+        return res.status(204).send({error: "No content"})
       }
-      res.send({success: 'Employee deleted successfully'})
+      res.status(200).send({success: 'Employee deleted successfully'})
     })
   }
 
